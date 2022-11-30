@@ -18,8 +18,12 @@ $inf = new gerechtinfo($db->getConnection());
 $ger = new gerecht($db->getConnection());
 
 /// VERWERK 
-$data = $ger->selecteerGerecht(2);
+// $data = $ger->selecteerGerecht(4);
+
+$selectGerechtArray = $ger-> selecteerGerecht(3);
+echo "<pre>";
+var_dump($selectGerechtArray);
 
 /// RETURN
-echo "<pre>";
-var_dump($data);
+// echo "<pre>";
+//var_dump($data);

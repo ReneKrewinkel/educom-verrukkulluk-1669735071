@@ -1,7 +1,7 @@
 <?php 
 
 // Aanpassen naar je eigen omgeving
-define("USER", "root");
+define("USER", "hamilton");
 define("PASSWORD", "root");
 define("DATABASE", "verrukkulluk");
 define("HOST", "localhost");

@@ -16,7 +16,7 @@ $ing = new ingredient($db->getConnection());
 $inf = new gerechtinfo($db->getConnection());
 
 /// VERWERK 
-$data = $inf->addFavorite(2,3);
+$data = $inf->addFavorite(1,6);
 
 /// RETURN
 echo "<pre>";

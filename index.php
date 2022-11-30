@@ -16,7 +16,7 @@ $ing = new ingredient($db->getConnection());
 $inf = new gerechtinfo($db->getConnection());
 
 /// VERWERK 
-$data = $inf->selectInfo(1, "O");
+$data = $ing->selecteerIngredient(3);
 
 /// RETURN
 echo "<pre>";

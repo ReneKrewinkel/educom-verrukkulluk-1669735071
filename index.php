@@ -6,6 +6,7 @@ require_once("lib/user.php");
 require_once("lib/keukentype.php");
 require_once("lib/ingredient.php");
 require_once("lib/gerechtinfo.php");
+require_once("lib/gerecht.php");
 
 /// INIT
 $db = new database();
@@ -14,9 +15,10 @@ $usr = new user($db->getConnection());
 $keu = new keukentype($db->getConnection());
 $ing = new ingredient($db->getConnection());
 $inf = new gerechtinfo($db->getConnection());
+$ger = new gerecht($db->getConnection());
 
 /// VERWERK 
-$data = $inf->addFavorite(1,6);
+$data = $ger->selecteerGerecht(2);
 
 /// RETURN
 echo "<pre>";

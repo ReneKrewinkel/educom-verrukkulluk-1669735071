@@ -34,7 +34,7 @@ class boodschappen {
     }
 
     private function artikelBijwerken($boodschap) {
-        $sql = "UPDATE boodschappen SET aantal = CEILING(aantal + 0.1)
+        $sql = "UPDATE boodschappen SET aantal = CEILING(aantal)
         WHERE id = $boodschap[id]";
         
         $result = mysqli_query($this->connection, $sql);
@@ -63,11 +63,11 @@ class boodschappen {
         $ingredienten = $this->selectIngredienten($gerecht_id); 
         foreach ($ingredienten as $ingredient) {
 
-            $gevonden = $this->artikelOpLijst($ingredient["artikel_id"], $user_id);
-            if(!$gevonden) {    
+            $lijst = $this->artikelOpLijst($ingredient["artikel_id"], $user_id);
+            if(!$lijst) {    
                 $this->toevoegenartikel($ingredient, $user_id);
             } else {
-                $this->artikelBijwerken($gevonden);
+                $this->artikelBijwerken($lijst);
             }
         }   
 

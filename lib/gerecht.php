@@ -46,7 +46,7 @@ class gerecht {
         $calorien=0;  
         
         foreach ($ingredienten as $ingredient)  {
-        $calorien +=($ingredient["calorieen"]*$ingredient["aantal"])/$ingredient["verpakking"];
+        $calorien +=($ingredient["calorieen"]*$ingredient["aantal"]);
         }
 
         return($calorien);
@@ -58,7 +58,7 @@ class gerecht {
         $prijs=0;
 
         foreach ($ingredienten as $ingredient)  {
-        $prijs += ($ingredient["prijs"]*$ingredient["aantal"])/$ingredient["verpakking"];
+        $prijs += ($ingredient["prijs"]*$ingredient["aantal"]);
 
         }
        

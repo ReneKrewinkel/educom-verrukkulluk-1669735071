@@ -29,14 +29,14 @@ $lij = new boodschappen($db->getConnection());
 
 // boodschappenlijst #12
 
-// $ophalenBoodschappen = $lij->ophalenBoodschappen(4);
-// echo "<pre>";
-// var_dump($ophalenBoodschappen);
+$ophalenBoodschappen = $lij->ophalenBoodschappen(4);
+echo "<pre>";
+var_dump($ophalenBoodschappen);
 
 // boodschappen toevoegen 
 
-$data = $lij->boodschappenToevoegen(1,6);
-echo($data);
+// $data = $lij->boodschappenToevoegen(1,6);
+// echo($data);
 
 // RETURN
 // echo "<pre>";

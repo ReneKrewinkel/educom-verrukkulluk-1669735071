@@ -6,6 +6,7 @@ class boodschappen {
     private $ingredient;
     private $user;
     private $boodschappen;
+    public $aantal;
 
     public function __construct($connection) {
         $this->connection = $connection;
@@ -34,7 +35,7 @@ class boodschappen {
     }
 
     private function artikelBijwerken($boodschap) {
-        $sql = "UPDATE boodschappen SET aantal = CEILING(aantal)
+        $sql = "UPDATE boodschappen SET aantal
         WHERE id = $boodschap[id]";
         
         $result = mysqli_query($this->connection, $sql);
@@ -48,6 +49,18 @@ class boodschappen {
         $result = mysqli_query($this->connection, $sql); 
         return TRUE;
     }
+
+    private function aantalBerekenen($boodschap, $ingredient) {
+        $ingredientAantal = $ingredient["aantal"];
+        $ingredientVerpakking = $ingredient["verpakking"];
+        $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
+        
+        $aantalBoodschap = $boodschap["aantal"];
+        $aantal = ceil($aantalBoodschap + $aantalBerekening);
+        echo $aantal;
+        return ($aantal);
+    }
+
 
     private function artikelOpLijst($artikel_id, $user_id) {
         $boodschappen = $this->ophalenBoodschappen($user_id);

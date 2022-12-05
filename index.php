@@ -19,7 +19,7 @@ $inf = new gerechtinfo($db->getConnection());
 $ger = new gerecht($db->getConnection());
 $lij = new boodschappen($db->getConnection());
 
-/// VERWERK 
+// VERWERK 
 // $data = $ger->selecteerGerecht(4);
 
 // Selecteer meerdere gerechten #11
@@ -27,16 +27,17 @@ $lij = new boodschappen($db->getConnection());
 // echo "<pre>";
 // var_dump($selectGerechtArray);
 
-// boodschappenlijst #12
+// boodschappenlijst Opdracht #12
 
-$ophalenBoodschappen = $lij->ophalenBoodschappen(4);
+// $ophalenBoodschappen = $lij->ophalenBoodschappen(1);
+// echo "<pre>";
+// var_dump($ophalenBoodschappen);
+
+// boodschappen toevoegen ($gerecht_id, $user_id)
+
+$addBoodschappen = $lij->boodschappenToevoegen(1,1);
 echo "<pre>";
-var_dump($ophalenBoodschappen);
-
-// boodschappen toevoegen 
-
-// $data = $lij->boodschappenToevoegen(1,6);
-// echo($data);
+var_dump($addBoodschappen);
 
 // RETURN
 // echo "<pre>";

@@ -1,26 +1,16 @@
 <?php
 
 class boodschappen {
-
     private $connection;
     private $ingredient;
-    private $user;
-    private $boodschappen;
-    public $aantal;
 
     public function __construct($connection) {
         $this->connection = $connection;
         $this->ingredient = new ingredient ($connection);
-        $this->user = new user($connection);
     }
 
     private function selectIngredienten($gerecht_id){
         $data = $this->ingredient->selecteerIngredient($gerecht_id);
-        return($data);
-    }
-
-    private function selectUser($user_id) {
-        $data = $this->user->selecteerUser($user_id);
         return($data);
     }
 
@@ -34,33 +24,36 @@ class boodschappen {
         return($return);
     }
 
-    private function artikelBijwerken($boodschap) {
-        $sql = "UPDATE boodschappen SET aantal
-        WHERE id = $boodschap[id]";
-        
-        $result = mysqli_query($this->connection, $sql);
-        echo "Bijwerken<br>";
-        var_dump($boodschap);
-    }
-
-    private function toevoegenArtikel($ingredient, $user_id) {
-        $artikel_id = $ingredient["artikel_id"];
-        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, 1)";
-        $result = mysqli_query($this->connection, $sql); 
-        return TRUE;
-    }
-
-    private function aantalBerekenen($boodschap, $ingredient) {
+    private function aantalBerekenen($ingredient) {
         $ingredientAantal = $ingredient["aantal"];
         $ingredientVerpakking = $ingredient["verpakking"];
         $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
-        
-        $aantalBoodschap = $boodschap["aantal"];
-        $aantal = ceil($aantalBoodschap + $aantalBerekening);
-        echo $aantal;
-        return ($aantal);
+        return $aantalBerekening;
+    }
+    
+    private function exactAantal($ingredient, $boodschap) {
+        $aantalBerekening = $this->aantalBerekenen($ingredient);
+        $berekeningExactaantal = $boodschap["exact_aantal"] + $aantalBerekening;
+        return ($berekeningExactaantal);
     }
 
+    private function artikelBijwerken($boodschap, $ingredient) {
+        $berekeningExactaantal = $this->exactAantal($ingredient, $boodschap);
+        $aantal = ceil($berekeningExactaantal);
+        $sql = "UPDATE boodschappen SET aantal = $aantal, exact_aantal = $berekeningExactaantal
+        WHERE id = $boodschap[id]";
+        $result = mysqli_query($this->connection, $sql);
+    }
+
+    private function toevoegenartikel($ingredient, $user_id) {
+        $artikel_id = $ingredient["artikel_id"];
+        
+        $aantalBerekening = $this->aantalBerekenen($ingredient);
+        $aantal = ceil($aantalBerekening);
+        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal, exact_aantal) VALUES ($artikel_id, $user_id, $aantal, $aantalBerekening)";
+        $result = mysqli_query($this->connection, $sql); 
+        return TRUE;
+    }
 
     private function artikelOpLijst($artikel_id, $user_id) {
         $boodschappen = $this->ophalenBoodschappen($user_id);
@@ -72,20 +65,21 @@ class boodschappen {
         return FALSE; 
     }
 
-    public function boodschappenToevoegen($gerecht_id, $user_id) {
-        $ingredienten = $this->selectIngredienten($gerecht_id); 
+    public function boodschappenToevoegen($gerecht_id, $user_id) {    
+        $ingredienten = $this->selectIngredienten($gerecht_id);
         foreach ($ingredienten as $ingredient) {
 
             $lijst = $this->artikelOpLijst($ingredient["artikel_id"], $user_id);
             if(!$lijst) {    
                 $this->toevoegenartikel($ingredient, $user_id);
             } else {
-                $this->artikelBijwerken($lijst);
+                $this->artikelBijwerken($lijst, $ingredient);
             }
-        }   
 
+        }              
 
-}
     }
+      
+} 
 
 ?>

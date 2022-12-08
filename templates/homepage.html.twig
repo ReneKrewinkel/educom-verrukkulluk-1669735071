@@ -2,7 +2,8 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-<img src="assets/img/logo-v2.png"/>
+<img src="assets/img/logo-v2.png" width="25%"/>
+
 {% endblock %}
 
 
@@ -11,9 +12,7 @@
     {# Dit is commentaar #}
 
     {# Print #}
-    <h1>Heading #1</h1>
     <h2>Heading #2</h2>
-    <h3>Heading #3 t/m 5</h3>
 
     <h4>Dit is de template {{  title }}</h4>
 
@@ -21,9 +20,9 @@
     <ul>
     {% for record in data %}
         <li>
-            <img src="{{ record.foto }}" style="width: 100px; heigfht: 100px;">
+            <img src="{{ record.foto }}" style="width: 100px; height: 100px;">
 
-            {{ record.title }}
+            {{ record.gerecht.titel }}
             {# sub-loop #}
             <ul>
                 {% for ingr in record.ingredienten %}
@@ -41,8 +40,8 @@
     {% endfor %}
     <ul>
      {# Dump #}
-       <pre>
+     {# <pre>
         {{ dump(data) }}
-       </pre>
+       </pre>#} 
 
 {% endblock %}

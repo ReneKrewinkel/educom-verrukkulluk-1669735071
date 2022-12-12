@@ -12,97 +12,39 @@
 
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </html>
 <body>
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-md-12" style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg')">
         {% block header %}
-            
-        {% endblock %}   
+    <div class="row">
+        <div class="col-md-12" style="height:850px">
+        <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); object-fit: cover; height:100%;">
+        <img src="assets/img/logo-v2.png" style=" width:400px "/> 
+        </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-3" style="background-color: #95b82d">
-            <h1 style="color: #FFF">Agenda</h1>
-            <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
-            <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
+            {% endblock %}   
 
+    <div class="row">
+        <div class="col-md-3" style="background-color:#95b82d">
+                <h1>Agenda</h1>
+                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
+                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
+                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
+                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
 
         </div>
-        <div class="col-md-9" style="background-color: #ffffff ">
-            <div class="row">
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
-						<div class="card-block">
-							<h5 class="card-title">
-								Eggs & Veggies
-							</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis tortor et lobortis interdum. In hac habitasse platea dictumst. Donec interdum ipsum quis justo ornare semper. Morbi vehicula malesuada magna. Sed tincidunt, nisi vitae libero.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Smullen</a> <a class="btn" href="#">Tekst</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-						<div class="card-block">
-							<h5 class="card-title">
-								Vegan Burger
-							</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis tortor et lobortis interdum. In hac habitasse platea dictumst. Donec interdum ipsum quis justo ornare semper. Morbi vehicula malesuada magna. Sed tincidunt, nisi vitae libero.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Smullen</a> <a class="btn" href="#">Tekst</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-            <br />
-                        <div class="row">
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
-						<div class="card-block">
-							<h5 class="card-title">
-								Sushi Rolls
-							</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis tortor et lobortis interdum. In hac habitasse platea dictumst. Donec interdum ipsum quis justo ornare semper. Morbi vehicula malesuada magna. Sed tincidunt, nisi vitae libero.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Smullen</a> <a class="btn" href="#">Tekst</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-						<div class="card-block">
-							<h5 class="card-title">
-								Pizza Green
-							</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis tortor et lobortis interdum. In hac habitasse platea dictumst. Donec interdum ipsum quis justo ornare semper. Morbi vehicula malesuada magna. Sed tincidunt, nisi vitae libero.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Smullen</a> <a class="btn" href="#">Tekst</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+        <div class="col-md-9" style="background-color:#FFF">
             {%  block content %}
             {%  endblock %}
         </div>
@@ -110,10 +52,21 @@
 
 
     <div class="row">
-        <div class="col-md-12 "style="background-color: #eb8d1e ">
-            <h1>Footer</h1>
+        <div class="col-md-12" style="background-color:#eb8d1e" style="height:300px;">
+        <div class="row footer">
+        <img src="assets/img/verrukkulluk-pay-off.png"style=" width:100px; top:20%;" class="center"/>
         </div>
+        <div class="col-md-2" style="max-width:150px">
+        <img src="assets/img/verrukkulluk-contact.png"style=" width:150px "/>
+
+           <i>Verrukkulluk.nl</i>
+           <i>Poststraat 2b Sittard</i>
+           <i>info@verrukkulluk.nl</i><br><br>
+        </div>
+        
     </div>
+        </div>
+    
 
 
 </div>

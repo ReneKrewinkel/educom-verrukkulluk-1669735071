@@ -662,6 +662,11 @@ progress {
   margin-top: var(--bs-gutter-y);
 }
 
+.row-block > * {
+  padding-left: 1em;
+  padding-top: 0.5em;
+}
+
 .col {
   flex: 1 0 0%;
 }
@@ -1087,6 +1092,7 @@ progress {
   .col-md-3 {
     flex: 0 0 auto;
     width: 25%;
+    background-color:#95b82d;
   }
   .col-md-4 {
     flex: 0 0 auto;
@@ -1111,6 +1117,7 @@ progress {
   .col-md-9 {
     flex: 0 0 auto;
     width: 75%;
+    background-color:#FFF;
   }
   .col-md-10 {
     flex: 0 0 auto;
@@ -1123,6 +1130,7 @@ progress {
   .col-md-12 {
     flex: 0 0 auto;
     width: 100%;
+    background-color:#eb8d1e;
   }
   .offset-md-0 {
     margin-left: 0;

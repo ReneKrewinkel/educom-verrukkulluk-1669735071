@@ -46,6 +46,12 @@ h3, h4, h5 {
     font-size: 32px;
 }
 
+h6 {
+    font-size: 32px;
+    color:#FFF;
+    text-decoration: none;
+}
+
 
 /** HTML / BODY **/
 html, body {

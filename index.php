@@ -31,9 +31,8 @@ $ing = new ingredient($db->getConnection());
 $inf = new gerechtinfo($db->getConnection());
 $ger = new gerecht($db->getConnection());
 $lij = new boodschappen($db->getConnection());
-$data = $ger->selecteerGerecht(3);
-// echo "<pre>";
-// var_dump($data);
+$data = $ger->selecteerGerecht();
+// echo "<pre>";var_dump($data);
 
 
 /*
@@ -49,7 +48,7 @@ switch($action) {
 
         case "homepage": {
             $data = $ger->selecteerGerecht();
-            $template = 'detail.html.twig';
+            $template = 'homepage.html.twig';
             $title = "homepage";
             break;
         }

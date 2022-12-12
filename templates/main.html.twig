@@ -1,3 +1,4 @@
+<div class="container" width="1680px">
 <html lang="nl">
 <head>
 
@@ -19,42 +20,52 @@
 <body>
 <div class="container-fluid">
 
+    {# HEADER #}
         {% block header %}
-    <div class="row">
-        <div class="col-md-12" style="height:850px">
-        <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); object-fit: cover; height:100%;">
-        <img src="assets/img/logo-v2.png" style=" width:400px "/> 
-        </div>
-        </div>
-    </div>
+        {# <div class="row">
+            <div class="col-md-12" style="height:840px">
+            <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); object-fit: cover; height:100%;">
+            <img src="assets/img/logo-v2.png" style=" width:400px "/> 
+            </div>
+            </div>
+        </div> #}
+        {% endblock %}   
 
-            {% endblock %}   
-
-    <div class="row">
-        <div class="col-md-3" style="background-color:#95b82d">
-                <h1>Agenda</h1>
-                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
-                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+    {# AGENDA #}
+    
+    <div class="row" text-align="center">
+        <div class="col-md-3">
+                <p><img src="assets/img/verrukkulluk-agenda.png" style="width:150px" text-align="center"/></p>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
                 <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
-                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
                 <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px;"> </i>
-                <i style="font-size: 30px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
                 <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
         </div>
-        <div class="col-md-9" style="background-color:#FFF">
+
+    {# MAIN CONTENT #}
+        <div class="col-md-9">
             {%  block content %}
+            
             {%  endblock %}
-        </div>
-    </div>
 
+    </div></div>
 
+    {# FOOTER #}
     <div class="row">
-        <div class="col-md-12" style="background-color:#eb8d1e" style="height:300px;">
-        <div class="row footer">
-        <img src="assets/img/verrukkulluk-pay-off.png"style=" width:100px; top:20%;" class="center"/>
+        <div class="col-md-12" style="height:300px;">
+        <div class="row-footer">
+        <img src="assets/img/verrukkulluk-pay-off.png"style=" width:100px; top:50%;" class="center"/>
         </div>
         <div class="col-md-2" style="max-width:150px">
         <img src="assets/img/verrukkulluk-contact.png"style=" width:150px "/>
@@ -62,13 +73,14 @@
            <i>Verrukkulluk.nl</i>
            <i>Poststraat 2b Sittard</i>
            <i>info@verrukkulluk.nl</i><br><br>
-        </div>
+
         
-    </div>
+  
         </div>
     
 
 
-</div>
+
 
 </body>
+</div>

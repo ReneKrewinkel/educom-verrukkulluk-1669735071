@@ -6,7 +6,7 @@
     <div class="row">
         <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); height:600px; width:1247px" >
         <img src="assets/img/logo-v2.png" style=" width:400px "/> 
-        </div><p></p><p></p><p></p>
+        </div>
 
             {% endblock %}   
 
@@ -18,6 +18,7 @@
                 <div class="row">
                 {% for record in data %}
                 <div class="col-md-6">
+                <br><br>
                 <div class="border shadow"><img src="{{ record.gerecht.afbeelding }}" style="width:100%"/>
                 <div class="row-block">
                 <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>
@@ -34,8 +35,8 @@
 
                 <div class="col-md-6"style="align-items: center; display: flex; justify-content: center;">  
                     <i class="fas fa-user-friends" style="color:red;"> </i>&nbsp;4&nbsp;
+                    <i style="color:red; font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight: bold;">&#x20AC </i>&nbsp;{{ (record.prijs/100) |number_format(2, '.', ',') }}&nbsp;
                     <i class="fa fa-fire" style="color:red;"> </i>&nbsp;{{ record.calorieen }}&nbsp;
-                    <i style="color:red; font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight: bold;">&#x20AC </i>&nbsp;{{ (record.prijs/100) |number_format(2, '.', ',') }}
                 </div></div>
             </div>
             <br>

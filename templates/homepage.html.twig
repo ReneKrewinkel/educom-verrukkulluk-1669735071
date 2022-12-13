@@ -1,11 +1,10 @@
 
-
 {# Opnemen van de "Main" file #}
 {% extends "main.html.twig" %}
         {% block header %}
     <div class="row">
-        <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); height:600px; width:1247px" >
-        <img src="assets/img/logo-v2.png" style=" width:400px "/> 
+        <img src="assets/img/logo-v2.png" style=" width:400px "/>
+        <img src="assets/img/verrukkulluk-header-homepage.png" style="background-image" class="img-fluid" alt="header verrukkulluk">
         </div>
 
             {% endblock %}   
@@ -18,7 +17,6 @@
                 <div class="row">
                 {% for record in data %}
                 <div class="col-md-6">
-                <br><br>
                 <div class="border shadow"><img src="{{ record.gerecht.afbeelding }}" style="width:100%"/>
                 <div class="row-block">
                 <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>
@@ -39,11 +37,11 @@
                     <i class="fa fa-fire" style="color:red;"> </i>&nbsp;{{ record.calorieen }}&nbsp;
                 </div></div>
             </div>
-            <br>
                 </div>
             </div>
     {% endfor %}
             </div>
+	</div>
     
 
 {% endblock %}

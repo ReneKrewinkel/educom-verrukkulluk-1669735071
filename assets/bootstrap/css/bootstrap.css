@@ -662,6 +662,17 @@ progress {
   margin-top: var(--bs-gutter-y);
 }
 
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row-eq-height > [class*='col-md-12'] {
+  display: flex;
+  flex-direction: column;
+}
+
 .row-block > * {
   padding-left: 1em;
   padding-top: 0.5em;
@@ -1092,7 +1103,7 @@ progress {
   .col-md-3 {
     flex: 0 0 auto;
     width: 25%;
-    background-color:#95b82d;
+    padding-top: 4em;
   }
   .col-md-4 {
     flex: 0 0 auto;
@@ -1117,7 +1128,6 @@ progress {
   .col-md-9 {
     flex: 0 0 auto;
     width: 75%;
-    background-color:#FFF;
   }
   .col-md-10 {
     flex: 0 0 auto;
@@ -1130,7 +1140,7 @@ progress {
   .col-md-12 {
     flex: 0 0 auto;
     width: 100%;
-    background-color:#eb8d1e;
+    padding-top: 4em;
   }
   .offset-md-0 {
     margin-left: 0;

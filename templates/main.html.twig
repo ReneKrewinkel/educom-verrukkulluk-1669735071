@@ -1,4 +1,3 @@
-<div class="container" width="1680px">
 <html lang="nl">
 <head>
 
@@ -18,68 +17,89 @@
 
 </html>
 <body>
-<div class="container-fluid">
 
-    {# HEADER #}
-        {% block header %}
-        {# <div class="row">
-            <div class="col-md-12" style="height:840px">
-            <div style="background-image: url('assets/img/verrukkulluk-header-homepage.jpeg'); object-fit: cover; height:100%;">
-            <img src="assets/img/logo-v2.png" style=" width:400px "/> 
-            </div>
-            </div>
-        </div> #}
-        {% endblock %}   
-        <div><br><br></div>
-        
-    {# AGENDA #}
-    <div class="row" text-align="center">
-        <div class="col-md-3">
-                <p><img src="assets/img/verrukkulluk-agenda.png" style="width:150px" text-align="center"/></p>
-                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
-                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
-                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
-                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
-                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
-                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
-                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
-                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
-                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
-                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
-                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
-        </div>
+	{# HEADER #}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+			{% block header %}
+			{% endblock %} 
+			</div>
+		</div>
+	{# AGENDA #}
+		<div class="row d-flex p-2">
+			<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-12; border shadow" style="background-color: #95b82d">
+						<p><img src="assets/img/verrukkulluk-agenda.png" style="width:150px" text-align="center"/></p>
+						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12; border shadow" style="background-color: #b31714">
+						<p><img src="assets/img/verrukkulluk-login.png" style="width:150px" text-align="center"/></p>
+					</div>
+				</div>
+			</div>
 
-    {# MAIN CONTENT #}
-        <div class="col-md-9">
-            {%  block content %}
-            {%  endblock %}
-    <br><br>
-    </div></div>
+	{# MAIN CONTENT #}
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					{%  block content %}
+					{%  endblock %}
+				</div>
+			</div>
 
-    {# FOOTER #}
-    <div class="row">
-        <div class="col-md-12" style="height:300px;">
-        <div class="row-footer">
-        <img src="assets/img/verrukkulluk-pay-off.png"style=" width:100px; top:50%;" class="center"/>
-        </div>
-        <div class="col-md-2" style="max-width:150px">
-        <img src="assets/img/verrukkulluk-contact.png"style=" width:150px "/>
-
-           <i>Verrukkulluk.nl</i>
-           <i>Poststraat 2b Sittard</i>
-           <i>info@verrukkulluk.nl</i><br><br>
-
-        
-  
-        </div>
-    
-
-
-
+			<div class="row">
+				<div class="col-md-12">
+							<nav class="pagination-sm">
+				<ul class="pagination justify-content-center">
+					<li class="page-item">
+						<a class="page-link" href="#">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">4</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">5</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		</div>
+	</div>
+</div>
 
 </body>
-</div>

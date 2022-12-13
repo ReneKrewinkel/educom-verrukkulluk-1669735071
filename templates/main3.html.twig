@@ -1,0 +1,101 @@
+<div class="container" width="1680px">
+<html lang="nl">
+<head>
+
+    <title>het is verrukkuluk! :: {{ TITEL }} </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+    <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</html>
+<body>
+<div class="container-fluid">
+
+    {# HEADER #}
+        {% block header %}
+        </div>
+        {% endblock %}   
+        <div><br><br></div>
+        
+    {# AGENDA #}
+    <div class="row" text-align="center">
+        <div class="col-md-3">
+                <p><img src="assets/img/verrukkulluk-agenda.png" style="width:150px" text-align="center"/></p>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+                <i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
+                <i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
+                <i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
+        </div>
+
+    {# MAIN CONTENT #}
+        <div class="col-md-9">
+            {%  block content %}
+            {%  endblock %}
+            <br><br>
+        <div class="row">
+			<nav class="pagination-sm">
+				<ul class="pagination justify-content-center">
+					<li class="page-item">
+						<a class="page-link" href="#">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">4</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">5</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+        <br>
+    </div></div>
+
+    {# FOOTER #}
+    <div class="row">
+        <div class="col-md-12" style="height:300px;">
+        <div class="row-footer">
+        <img src="assets/img/verrukkulluk-pay-off.png"style=" width:100px; top:50%;" class="center"/>
+        </div>
+        <div class="col-md-2" style="max-width:150px">
+        <img src="assets/img/verrukkulluk-contact.png"style=" width:150px "/>
+
+           <i>Verrukkulluk.nl</i>
+           <i>Poststraat 2b Sittard</i>
+           <i>info@verrukkulluk.nl</i><br><br>
+  
+        </div>
+    
+</body>
+</div>

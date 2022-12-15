@@ -1,13 +1,11 @@
-
 {# Opnemen van de "Main" file #}
-{% extends "main.html.twig" %}
+    {% extends "main.html.twig" %}
         {% block header %}
-    <div class="row">
-        <img src="assets/img/logo-v2.png" style=" width:400px "/>
-        <img src="assets/img/verrukkulluk-header-homepage.png" style="background-image" class="img-fluid" alt="header verrukkulluk">
-        </div>
+            <div class="row">
+                <img src="assets/img/verrukkulluk-header-homepage.png" style="background-image" class="img-fluid" alt="header verrukkulluk">
+            </div>
 
-            {% endblock %}   
+        {% endblock %}   
 
     {# nu de block content op in de main pagina vullen #}
     {% block content %}

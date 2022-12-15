@@ -1103,7 +1103,6 @@ progress {
   .col-md-3 {
     flex: 0 0 auto;
     width: 25%;
-    padding-top: 4em;
   }
   .col-md-4 {
     flex: 0 0 auto;
@@ -1140,7 +1139,6 @@ progress {
   .col-md-12 {
     flex: 0 0 auto;
     width: 100%;
-    padding-top: 4em;
   }
   .offset-md-0 {
     margin-left: 0;

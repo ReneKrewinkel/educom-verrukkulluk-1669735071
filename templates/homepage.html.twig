@@ -1,45 +1,56 @@
 {# Opnemen van de "Main" file #}
     {% extends "main.html.twig" %}
+
         {% block header %}
-            <div class="row">
-                <img src="assets/img/verrukkulluk-header-homepage.png" style="background-image" class="img-fluid" alt="header verrukkulluk">
-            </div>
+
+        <script>
+            $(document).ready( function() {
+                
+                $("#background-image").vegas({           
+                    slides: [
+                        { src: "assets/img/vegas/001.png" },
+                        { src: "assets/img/vegas/002.png" },
+                        { src: "assets/img/vegas/003.png" },
+                        { src: "assets/img/vegas/004.png" },
+                    ]
+                })
+            })  
+        </script>
 
         {% endblock %}   
 
     {# nu de block content op in de main pagina vullen #}
     {% block content %}
 
-            {# sub-loop #}
-            <div class="container">
-                <div class="row">
-                {% for record in data %}
-                <div class="col-md-6">
-                <div class="border shadow"><img src="{{ record.gerecht.afbeelding }}" style="width:100%"/>
-                <div class="row-block">
-                <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>
-                <p>{{ record.gerecht.korte_omschrijving }}</p>
-                <ul>
-                    {% for ingr in record.ingredienten %}
-                    {% endfor %}
-                </ul>
-                
-                <div class="row">
-                <div class="col-md-6" >
-                <button type="button" class="btn btn-danger"><a href=index.php?gerecht_id={{record.gerecht.id}}; style="text-decoration:none"><h6>Smullen!</h6></a></button>
-                </div>
+        {# sub-loop #}
 
-                <div class="col-md-6"style="align-items: center; display: flex; justify-content: center;">  
-                    <i class="fas fa-user-friends" style="color:red;"> </i>&nbsp;4&nbsp;
-                    <i style="color:red; font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight: bold;">&#x20AC </i>&nbsp;{{ (record.prijs/100) |number_format(2, '.', ',') }}&nbsp;
-                    <i class="fa fa-fire" style="color:red;"> </i>&nbsp;{{ record.calorieen }}&nbsp;
-                </div></div>
-            </div>
+        <div class="container">
+            <div class="row g-4 p-4">
+                {% for record in data %}
+                <div class="col-6"><img src="{{ record.gerecht.afbeelding }}" style="width:100%"/>
+                    <div class="p-3 border shadow" style="min-height: 265px">
+                        <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>
+                        <p>{{ record.gerecht.korte_omschrijving }}</p>
+                        <ul>
+                            {% for ingr in record.ingredienten %}
+                            {% endfor %}
+                        </ul>
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <button type="button" class="btn btn-danger"><a href="index.php?gerecht_id={{record.gerecht.id}}&action=detail"; style="text-decoration:none"><h6>Smullen!</h6></a></button>
+                            </div>
+                                <div class="col-md-6" style="align-items: center; display: flex; justify-content: center;">  
+                                    <i class="fas fa-user-friends m-1" style="color:red;"> </i>4
+                                    <i style="color:red; font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight: bold" class="m-1">&#x20AC </i>{{ (record.prijs/100) |number_format(2, '.', ',') }}
+                                    <i class="fa fa-fire m-1" style="color:red;"> </i>{{ record.calorieen }}
+                                </div>
+                        </div>
+                    </div>
                 </div>
+                    {% endfor %}
             </div>
-    {% endfor %}
-            </div>
-	</div>
+        </div>
     
 
 {% endblock %}
+

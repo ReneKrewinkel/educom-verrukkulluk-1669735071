@@ -54,7 +54,7 @@ switch($action) {
         }
 
         case "detail": {
-            $data = $gerecht->selecteerGerecht($gerecht_id);
+            $data = $ger->selecteerGerecht($gerecht_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;

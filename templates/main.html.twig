@@ -7,33 +7,43 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/vegas.min.css" />  
+	<link rel="stylesheet" type="text/css" href="assets/css/vegas.css"/>
 
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-</html>
-<body>
-<div class="container-fluid">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+    <script src="assets/vegas/vegas.js"></script>
+    
+	</head>
+	<body>
+	<div class="container-fluid">
 
     {# HEADER #}
 	<div class="row">
 		<div class="col-md-12">
+
+    <div id="background-image"  class="pl-3 pt-4" style="height: 700px"> 
+        <a href="http://localhost/educom-verrukkulluk-new/index.php"> <img src="assets/img/logo-v2.png" style="height: 180px; width: auto"/> </a>
+
 			{% block header %}
 			{% endblock %} 
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 
             {# AGENDA #}
-			<div class="row">
-				<div class="col-md-12 p-2 m-5; border shadow" style="background-color: #95b82d">
-						<p><img src="assets/img/verrukkulluk-agenda.png" style="width:150px" text-align="center"/></p>
+			<div class="row p-4">
+				<div class="col-md-12; border shadow" style="background-color: #95b82d">
+						<center><img src="assets/img/verrukkulluk-agenda.png" style="width:170px" text-align="center"/></center>
 						<i class="fa fa-calendar-alt" style="font-size: 40px; color:#FFF;"> </i>
 						<i style="font-size: 40px;font-family: pretty_lilyregular;">Vegetarisch koken</i> <br>
 						<i style="font-size: 14px;"> Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee.</i><br><br>
@@ -53,9 +63,9 @@
 			</div>
 
             {# LOGIN #}
-			<div class="row">
-				<div class="col-md-12 p-2 m-5; border shadow" style="background-color: #b31714">
-					<p><img src="assets/img/verrukkulluk-login.png" style="width:200px; text-align:center"/></p>
+			<div class="row p-4">
+				<div class="col-md-12; border shadow" style="background-color: #b31714">
+					<center><img src="assets/img/verrukkulluk-login.png" style="width:170px; text-align:center"/></center>
 						<form role="form">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email</label>
@@ -74,19 +84,17 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<div class="row">
 
                 {# MAIN CONTENT #}
-				<div class="col-md-12">
 					{%  block content %}
 					{%  endblock %}
-				</div>
 			</div>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12 text-center">
 						<nav class="pagination-sm">
-							<ul class="pagination justify-content-center">
+							<ul class="pagination">
 								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 								<li class="page-item"><a class="page-link" href="#">1</a></li>
 								<li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -98,7 +106,6 @@
 						</nav>
 					</div>
 				</div>
-		</div>
 	</div>
 
     {# FOOTER #}
@@ -118,3 +125,4 @@
 </div>
     
 </body>
+</html>

@@ -29,8 +29,8 @@ class gerecht {
 
     private function selectInfo($gerechtinfo_id, $record_type) {
             
-        $gerechtinfo = $this->inf->selecteerInfo($gerechtinfo_id, $record_type);
-        return($gerechtinfo);
+        $data = $this->inf->selecteerInfo($gerechtinfo_id, $record_type);
+        return($data);
     
         }
 
@@ -88,7 +88,7 @@ class gerecht {
             $keuken = $this->selectKeukentype($keuken_id);
                 
             $type_id = $gerecht["type_id"];
-            $type= $this->selectKeukentype($type_id);
+            $type = $this->selectKeukentype($type_id);
             
             $ingredienten = $this->selectIngredient($gerecht_id);
             
@@ -100,15 +100,27 @@ class gerecht {
             $user= $this->selectUser($user_id);
             
             $info = $this->selectInfo($gerecht_id, '$record_type');
+
+            $bereidingswijze = $this->selectInfo($gerecht_id, 'B');
+
+            $opmerkingen = $this->selectInfo($gerecht_id, 'O');
+
+            $waarderingen = $this->selectInfo($gerecht_id, 'W');
+
+            $favorieten = $this->selectInfo($gerecht_id, 'F');
             
             $gerechten[] = [
                 "gerecht" => $gerecht,
-                "keukentype" => $keuken,
+                "keuken" => $keuken,
+                "type" => $type,
                 "user" => $user,
                 "ingredienten" => $ingredienten,
-                "gerechtinfo" => $info,
                 "prijs" => $prijs,
-                "calorieen" => $calorieen 
+                "calorieen" => $calorieen,
+                "bereidingswijze" => $bereidingswijze,
+                "opmerkingen" => $opmerkingen,
+                "waarderingen" => $waarderingen,
+                "favorieten" => $favorieten
     
             ];    
 

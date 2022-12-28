@@ -34,6 +34,31 @@ $lij = new boodschappen($db->getConnection());
 $data = $ger->selecteerGerecht();
 // echo "<pre>";var_dump($data);
 
+$conn = new mysqli('localhost', 'root', '', 'verrukkulluk');
+
+if (isset($_POST['save'])) {
+    $uID = $conn->real_escape_string($_POST['uID']);
+    $rating = $conn->real_escape_string($_POST['rating']);
+    $rating++;
+
+    if (!$uID) {
+        $conn->query("INSERT INTO gerecht (rating) VALUES ('$ratedIndex')");
+        $sql = $conn->query("SELECT id FROM gerecht ORDER BY id DESC LIMIT 1");
+        $uData = $sql->fetch_assoc();
+        $uID = $uData['id'];
+    } else
+        $conn->query("UPDATE gerecht SET rating='$rating' WHERE id='$uID'");
+
+    exit(json_encode(array('id' => $uID)));
+}
+
+$sql = $conn->query("SELECT id FROM gerecht");
+$numR = $sql->num_rows;
+
+$sql = $conn->query("SELECT SUM(rating) AS total FROM gerecht");
+$rData = $sql->fetch_array();
+$total = $rData['total'];
+
 
 /*
 URL:

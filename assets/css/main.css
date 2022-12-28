@@ -74,4 +74,60 @@ html, body {
     font: 32px Arial, sans-serif;
   }
 
-  
+  .checked {
+    color: orange;
+  }
+
+  /* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+}
+
+.container-star{
+  position: relative;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container-star .post{
+  display: none;
+}
+.container-star .text{
+  font-size: 15px;
+  color: #666;
+  font-weight: 500;
+}
+
+.container-star .edit:hover{
+  text-decoration: underline;
+}
+.container-star .star-widget input{
+  display: none;
+}
+.star-widget label{
+  font-size: 20px;
+  color: #444;
+  padding: 5px;
+  float: right;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: #fca01f;
+}
+input:checked ~ label{
+  color: #fca01f;
+}
+input#rate-5:checked ~ label{
+  color: #fca01f;
+  text-shadow: 0 0 20px #fd4;
+} */

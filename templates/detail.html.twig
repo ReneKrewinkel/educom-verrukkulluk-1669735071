@@ -1,7 +1,8 @@
 {# Opnemen van de "Main" file #}
     {% extends "main.html.twig" %}
-        {% block header %} 
-                
+
+        {% block header %}
+
         <script>
             $(document).ready( function() {
                 
@@ -14,9 +15,64 @@
                     ]
                 })
             })  
-        </script>
 
-        {% endblock %}   
+            var rating = -1, uID = 0;
+
+            $(document).ready(function () {
+                resetStarColors();
+
+                if (localStorage.getItem('rating') != null) {
+                    setStars(parseInt(localStorage.getItem('rating')));
+                    uID = localStorage.getItem('uID');
+                }
+
+                $('.fa-star').on('click', function () {
+                rating = parseInt($(this).data('index'));
+                localStorage.setItem('rating', rating);
+                saveToTheDB();
+                });
+
+                $('.fa-star').mouseover(function () {
+                    resetStarColors();
+                    var currentIndex = parseInt($(this).data('index'));
+                    setStars(currentIndex);
+                });
+
+                $('.fa-star').mouseleave(function () {
+                    resetStarColors();
+
+                    if (rating != -1)
+                        setStars(rating);
+                });
+            });
+
+            function saveToTheDB() {
+                $.ajax({
+                url: "index.php",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    save: 1,
+                    uID: uID,
+                    rating: rating
+                }, success: function (r) {
+                        uID = r.id;
+                        localStorage.setItem('uID', uID);
+                }
+                });
+            }
+
+            function setStars(max) {
+                for (var i=0; i <= max; i++)
+                    $('.fa-star:eq('+i+')').css('color', 'orange');
+            }
+
+            function resetStarColors() {
+                $('.fa-star').css('color', 'yellow');
+            }
+        </script>
+        
+        {% endblock %}    
 
     {# nu de block content op in de main pagina vullen #}
     {% block content %}
@@ -34,7 +90,15 @@
                                     <div class="col-md-6">
                                     <h2 style="color:#6e8722;">{{ data.0.gerecht.titel }}</h2>
                                     </div>
-                                    <div class="col-md-6"> Waardering *****
+                                    
+                                    <div class="col-md-6">
+                                        <div>
+                                            <i class="fa fa-star" data-index="0"></i>
+                                            <i class="fa fa-star" data-index="1"></i>
+                                            <i class="fa fa-star" data-index="2"></i>
+                                            <i class="fa fa-star" data-index="3"></i>
+                                            <i class="fa fa-star" data-index="4"></i>
+                                    </div>
                                     </div>
                                     </div>
                                     <div class="row" style="font-size: 14px">
@@ -51,19 +115,19 @@
                                       <div class="btn btn-danger"><h6>Op lijst</h6></a></class>
                                 </div>
                             </div>
-                </div>
+                    </div>
                 	</div>
                             
                             <div class="row p-4">
                                 <div class="row border shadow p-0">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#ingredienten"><h7 style="color:#6e8722;">Ingrediënten</h7></a></li>
+                                        <li><a data-toggle="tab" href="#ingredienten"><h7 style="color:#6e8722;">Ingrediënten</h7></a></li>
                                         <li><a data-toggle="tab" href="#bereidingswijze"><h7 style="color:#6e8722;">Bereidingswijze</h7></a></li>
-                                        <li><a data-toggle="tab" href="#opmerkingen"><h7 style="color:#6e8722;">Opmerkingen</h7></a></li>
+                                        <li class="active"><a data-toggle="tab" href="#opmerkingen"><h7 style="color:#6e8722;">Opmerkingen</h7></a></li>
                                     </ul>
 
                                     <div class="tab-content p-2">
-                                        <div id="ingredienten" class="tab-pane in active">
+                                        <div id="ingredienten" class="tab-pane">
                                             <div class="row">
                                                 <div class="col-md-2">rtyyr
                                                 </div>
@@ -81,7 +145,7 @@
                                         {% endfor %}
                                     </div>
                                         
-                                    <div id="opmerkingen" class="tab-pane">
+                                    <div id="opmerkingen" class="tab-pane in active">
                                         {% for record in data.0.opmerkingen %}
                                             <div class="row p-3">
                                                 <div class="col-md-2" style="background-image: url('{{record.afbeelding}}'); background-position: center; background-size: cover; height: 100px; max-width: 100px; border-radius: 50%; border: 3px solid #eb8d1f;">

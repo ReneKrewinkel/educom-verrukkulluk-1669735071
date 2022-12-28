@@ -29,7 +29,7 @@
                 {% for record in data %}
                 <div class="col-6"><img src="{{ record.gerecht.afbeelding }}" style="width:100%"/>
                     <div class="p-3 border shadow" style="min-height: 265px">
-                        <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>
+                        <h2 style="color:#6e8722;">{{ record.gerecht.titel }}</h2>  
                         <p>{{ record.gerecht.korte_omschrijving }}</p>
                         <ul>
                             {% for ingr in record.ingredienten %}

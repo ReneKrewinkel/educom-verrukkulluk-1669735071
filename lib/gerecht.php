@@ -34,6 +34,11 @@ class gerecht {
     
         }
 
+        private function selectStar($gerecht_id) {
+            $data = $this->inf->berekenGemiddelde($gerecht_id);
+            return($data);
+        }
+
     private function selectKeukentype($keu_id) {
             
         $data = $this->keu->selecteerKeukentype($keu_id);
@@ -83,6 +88,8 @@ class gerecht {
         while ($gerecht = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     
             $gerecht_id = $gerecht["id"];
+
+            $gemiddeldeRating = $this->selectStar($gerecht_id);
     
             $keuken_id = $gerecht["keuken_id"];
             $keuken = $this->selectKeukentype($keuken_id);
@@ -111,6 +118,7 @@ class gerecht {
             
             $gerechten[] = [
                 "gerecht" => $gerecht,
+                "rating" => $gemiddeldeRating,
                 "keuken" => $keuken,
                 "type" => $type,
                 "user" => $user,

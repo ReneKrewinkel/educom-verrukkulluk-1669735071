@@ -78,6 +78,38 @@ html, body {
     color: orange;
   }
 
+  .star {
+    font-size: 30px;
+    cursor: poiner;
+    width: 50px;
+}
+
+.star:hover {
+    color: #F00;
+}
+
+
+.green {
+  color: #6e8722;
+}
+
+.background-darker-green {
+  background-color: #6e8722
+}
+
+
+.white {
+  color: #FFF;
+}
+
+.background-white {
+  background-color: #FFF;
+}
+
+.red {
+  color: #b31714;
+}
+
   /* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
   margin: 0;

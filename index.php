@@ -32,33 +32,8 @@ $inf = new gerechtinfo($db->getConnection());
 $ger = new gerecht($db->getConnection());
 $lij = new boodschappen($db->getConnection());
 $data = $ger->selecteerGerecht();
+
 // echo "<pre>";var_dump($data);
-
-$conn = new mysqli('localhost', 'root', '', 'verrukkulluk');
-
-if (isset($_POST['save'])) {
-    $uID = $conn->real_escape_string($_POST['uID']);
-    $rating = $conn->real_escape_string($_POST['rating']);
-    $rating++;
-
-    if (!$uID) {
-        $conn->query("INSERT INTO gerecht (rating) VALUES ('$ratedIndex')");
-        $sql = $conn->query("SELECT id FROM gerecht ORDER BY id DESC LIMIT 1");
-        $uData = $sql->fetch_assoc();
-        $uID = $uData['id'];
-    } else
-        $conn->query("UPDATE gerecht SET rating='$rating' WHERE id='$uID'");
-
-    exit(json_encode(array('id' => $uID)));
-}
-
-$sql = $conn->query("SELECT id FROM gerecht");
-$numR = $sql->num_rows;
-
-$sql = $conn->query("SELECT SUM(rating) AS total FROM gerecht");
-$rData = $sql->fetch_array();
-$total = $rData['total'];
-
 
 /*
 URL:
@@ -67,7 +42,10 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+$rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
 $user_id= 1;
+
+$search = isset($_GET['search']) ? $_GET["search"] : NULL;  
 
 
 switch($action) {
@@ -83,6 +61,27 @@ switch($action) {
             $data = $ger->selecteerGerecht($gerecht_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
+            break;
+        }
+
+
+        case "addrating": {
+            $addWaardering= $gerechtinfo->addWaardering($gerecht_id, $rating);
+            
+            $gemiddeldeWaardering= $gerechtinfo->berekenGemiddelde($gerecht_id);
+            
+           header('Content-Type: application/json; charset-utf-8');
+           $data = ["average" => $gemiddeldeWaardering];
+           
+           echo json_encode($data);
+           die ();
+            
+        }
+
+        case "ophalen_boodschappen": {
+            $data= $boodschappen->ophalenBoodschappen($user_id);
+            $template = 'boodschappen.html.twig';
+            $title = "boodschappen";
             break;
         }
 

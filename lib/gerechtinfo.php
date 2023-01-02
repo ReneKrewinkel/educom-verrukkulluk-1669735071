@@ -16,21 +16,68 @@ class gerechtinfo {
             
         }
 
-    public function deleteFavorite($gerecht_id, $user_id) {
+    public function addFavorite($gerecht_id) { 
 
-        $sql = "delete from gerechtinfo where record_type = 'F' and gerecht_id = $gerecht_id and user_id = $user_id";
+        if(!isset($gerecht_id)) return false;  
 
-        $result = mysqli_query($this->connection, $sql);
+        $sql = "insert into gerechtinfo (record_type, gerecht_id)
+        VALUES ('F', $gerecht_id)"; 
 
-    }    
-
-    public function addFavorite($gerecht_id, $user_id) { 
-
-        $sql = "insert into gerechtinfo (gerecht_id, record_type, user_id) VALUES ($gerecht_id, 'F', $user_id)";
-
-        $result = mysqli_query($this->connection, $sql);
+        return ($this->connection->query($sql));
         
     }    
+
+    public function deleteFavorite($gerecht_id) {
+
+        $sql = "delete from gerechtinfo where gerecht_id= $gerecht_id";
+
+        return ($this->connection->query($sql));
+
+    } 
+
+    public function addWaardering($gerecht_id, $rating) {
+
+        $sql = "INSERT INTO gerecht_info (gerecht_id, record_type, nummeriekveld)
+
+        VALUES ($gerecht_id, 'W', $rating)";
+
+        return ($this->connection->query($sql));
+
+    }
+
+    public function berekenGemiddelde($gerecht_id) {
+
+        $sql="SELECT nummeriekveld FROM gerechtinfo WHERE record_type='W' AND gerecht_id=$gerecht_id";
+        $result = mysqli_query($this->connection, $sql);
+
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $waarderingen[] = 
+                $row["nummeriekveld"]
+            ;
+        }
+
+        $count= count($waarderingen);
+        $sum = array_sum($waarderingen);
+        $berekening=$sum/$count;
+        $berekeningRounded=round($berekening);
+        return $berekeningRounded;
+        }
+
+        public function showSter($gerecht_id) {
+            $berekening = $this->berekenGemiddelde($gerecht_id);
+            if ($berekening <=1) {
+                $value="*";
+            } elseif ($berekening <=2) {
+                $value="**";
+            } elseif ($berekening <=3) {
+                $value="***";
+            } elseif ($berekening <=4) {
+                $value="****";
+            } elseif ($berekening <=5) {
+                $value="*****";
+            } else $value="";
+            return $value;
+        }
   
     public function selecteerInfo($gerecht_id, $record_type) {
 
